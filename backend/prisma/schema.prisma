@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+
+  // Prisma tomará la URL de conexión desde el archivo .env
+  url = env("DATABASE_URL")
+}
+
+model Task {
+
+  // Identificador único de cada tarea
+  id Int @id @default(autoincrement())
+
+  // Texto de la tarea
+  text String
+
+  // Indica si la tarea está completada
+  completed Boolean @default(false)
+}
