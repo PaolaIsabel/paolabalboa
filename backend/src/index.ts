@@ -14,10 +14,12 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter })
 
 const app = express()
-const PORT = 3000
+const PORT = Number(process.env.PORT) || 3000
+//const PORT = 3000
 
 // Clave secreta usada para firmar y verificar tokens
-const SECRET_KEY = "mi_clave_secreta"
+//const SECRET_KEY = "mi_clave_secreta"
+const SECRET_KEY = process.env.JWT_SECRET || "mi_clave_secreta"
 
 app.use(cors())
 app.use(express.json())
